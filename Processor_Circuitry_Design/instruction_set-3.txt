@@ -1,0 +1,43 @@
+Designating each instruction:
+
+ADD: 0000 
+SUB: 0001 
+LOAD: 0010 
+STORE: 0011 
+LUI: 10
+LLI: 11 
+JALAR: 0110 
+BEQZ: 0111
+
+Two-bit encoding of each register
+
+RA: 00
+RB: 01
+RC: 10
+RD: 11
+
+Encoding:
+
+ADD: 0000 RA0 RA0 RB0 RB1
+0 0 0 0 | 0 0 0 1
+
+SUB: 0001 RA0 RA0 RB0 RB1
+0 0 0 1 | 0 0 0 1
+
+LOAD: 0010 RA0 RA0 RB0 RB1
+0 0 1 0 | 0 0 0 1
+
+STORE: 0011 RA0 RA0 RB0 RB1
+0 0 1 1 | 0 0 0 1
+
+LUI: 0100 RC1 RC0 I31 I20 I10 I00
+1 0 | 1 0 | 1 0 0 0
+
+LLI: 0101 RC1 RC0 I31 I20 I10 I00
+1 1 | 1 0 | 1 0 0 0
+
+JALR: 0110 RA0 RA0 RB0 RB1
+0 1 1 0 | 0 0 0 1
+
+BEQZ: 0111 RA0 RA0 RB0 RB1
+0 1 1 1 | 0 0 0 1

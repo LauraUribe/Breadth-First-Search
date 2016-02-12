@@ -1,0 +1,300 @@
+<control>
+<control path>
+<pathname>path</pathname>
+<state>
+<statename>fetch</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>0</mux>
+<alu ALU>X</alu>
+<reg IR></reg>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch2</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>fetch2</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>0</mux>
+<reg PC></reg>
+<alu ALU>X</alu>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>0</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>0</input>
+<nextstatename>add1</nextstatename>
+</nextstate>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>1</input>
+<nextstatename>sub</nextstatename>
+</nextstate>
+<nextstate>
+<input control>X</input>
+<input opcode2>2</input>
+<input opcode4>X</input>
+<nextstatename>LUI</nextstatename>
+</nextstate>
+<nextstate>
+<input control>X</input>
+<input opcode2>3</input>
+<input opcode4>X</input>
+<nextstatename>LLI</nextstatename>
+</nextstate>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>3</input>
+<nextstatename>STORE</nextstatename>
+</nextstate>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>8</input>
+<nextstatename>BEQZ</nextstatename>
+</nextstate>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>2</input>
+<nextstatename>LOAD</nextstatename>
+</nextstate>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>6</input>
+<nextstatename>JALR</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>add1</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg AIR></reg>
+<reg RF></reg>
+<reg IR></reg>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>add2</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>add2</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg AIR></reg>
+<reg RF></reg>
+<reg IR></reg>
+<reg AOR></reg>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>add3</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>add3</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg RF></reg>
+<reg IR></reg>
+<reg AOR></reg>
+<mux muxRF1>1</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>sub</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg AIR></reg>
+<reg RF></reg>
+<reg IR></reg>
+<reg AOR></reg>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>JALR</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg RF></reg>
+<reg IR></reg>
+<mux muxRF1>3</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>LLI</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg AIR></reg>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>LUI</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg RF></reg>
+<mux muxRF1>4</mux>
+<mux muxRF2>2</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>BEQZ</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<mux muxRF1>X</mux>
+<reg z></reg>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>f</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>STORE</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg AIR></reg>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+<reg mem></reg>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+<state>
+<statename>LOAD</statename>
+<microinstruction>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<mux memMUX>X</mux>
+<alu ALU>X</alu>
+<reg AIR></reg>
+<mux muxRF1>X</mux>
+<mux muxRF2>X</mux>
+<mux muxPCRF>X</mux>
+</microinstruction>
+<nextstate>
+<input control>X</input>
+<input opcode2>X</input>
+<input opcode4>X</input>
+<nextstatename>fetch</nextstatename>
+</nextstate>
+</state>
+</control path>
+</control>
+
